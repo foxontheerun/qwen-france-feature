@@ -1,0 +1,704 @@
+{
+ "rows": [
+  {
+   "label": "The capital of France is Paris",
+   "tokens": [
+    "The",
+    " capital",
+    " of",
+    " France",
+    " is",
+    " Paris"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    1.5,
+    0.0,
+    1.0234375
+   ],
+   "group": "English"
+  },
+  {
+   "label": "Paris is famous for the Eiffel Tower",
+   "tokens": [
+    "Paris",
+    " is",
+    " famous",
+    " for",
+    " the",
+    " Eiff",
+    "el",
+    " Tower"
+   ],
+   "acts": [
+    1.0166015625,
+    0.35791015625,
+    0.0,
+    0.0,
+    0.0,
+    0.74609375,
+    0.41357421875,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "I love French cuisine and wine",
+   "tokens": [
+    "I",
+    " love",
+    " French",
+    " cuisine",
+    " and",
+    " wine"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    1.712890625,
+    0.37744140625,
+    0.0,
+    0.3583984375
+   ],
+   "group": "English"
+  },
+  {
+   "label": "The capital of Germany is Berlin",
+   "tokens": [
+    "The",
+    " capital",
+    " of",
+    " Germany",
+    " is",
+    " Berlin"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "Berlin is famous for the Brandenburg Gate",
+   "tokens": [
+    "Berlin",
+    " is",
+    " famous",
+    " for",
+    " the",
+    " Brandenburg",
+    " Gate"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "I love Italian pizza and pasta",
+   "tokens": [
+    "I",
+    " love",
+    " Italian",
+    " pizza",
+    " and",
+    " pasta"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.30419921875,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "The weather today is sunny and warm",
+   "tokens": [
+    "The",
+    " weather",
+    " today",
+    " is",
+    " sunny",
+    " and",
+    " warm"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "She wrote three numbers on paper",
+   "tokens": [
+    "She",
+    " wrote",
+    " three",
+    " numbers",
+    " on",
+    " paper"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "The capital of Italy is Rome",
+   "tokens": [
+    "The",
+    " capital",
+    " of",
+    " Italy",
+    " is",
+    " Rome"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "Rome is famous for the Colosseum",
+   "tokens": [
+    "R",
+    "ome",
+    " is",
+    " famous",
+    " for",
+    " the",
+    " Col",
+    "osse",
+    "um"
+   ],
+   "acts": [
+    0.0,
+    0.2042236328125,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "I love Spanish tapas and paella",
+   "tokens": [
+    "I",
+    " love",
+    " Spanish",
+    " tap",
+    "as",
+    " and",
+    " pa",
+    "ella"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.388671875,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "The capital of Japan is Tokyo",
+   "tokens": [
+    "The",
+    " capital",
+    " of",
+    " Japan",
+    " is",
+    " Tokyo"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "Tokyo is famous for sushi and Shibuya",
+   "tokens": [
+    "Tok",
+    "yo",
+    " is",
+    " famous",
+    " for",
+    " sushi",
+    " and",
+    " Shib",
+    "uya"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "The capital of Russia is Moscow",
+   "tokens": [
+    "The",
+    " capital",
+    " of",
+    " Russia",
+    " is",
+    " Moscow"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "Moscow is famous for Red Square",
+   "tokens": [
+    "Mos",
+    "cow",
+    " is",
+    " famous",
+    " for",
+    " Red",
+    " Square"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "I love Greek moussaka and baklava",
+   "tokens": [
+    "I",
+    " love",
+    " Greek",
+    " mou",
+    "ss",
+    "aka",
+    " and",
+    " bak",
+    "lava"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.6103515625,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "The weather forecast says it will rain tomorrow",
+   "tokens": [
+    "The",
+    " weather",
+    " forecast",
+    " says",
+    " it",
+    " will",
+    " rain",
+    " tomorrow"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "She wrote five equations on the whiteboard",
+   "tokens": [
+    "She",
+    " wrote",
+    " five",
+    " equations",
+    " on",
+    " the",
+    " white",
+    "board"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "English"
+  },
+  {
+   "label": "Столица Франции — Париж",
+   "tokens": [
+    "Сто",
+    "лица",
+    " Франции",
+    " —",
+    " Пари",
+    "ж"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    1.6416015625,
+    0.0,
+    1.1015625,
+    0.73583984375
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Париж славится Эйфелевой башней",
+   "tokens": [
+    "П",
+    "ари",
+    "ж",
+    " с",
+    "лав",
+    "ится",
+    " Эй",
+    "ф",
+    "еле",
+    "вой",
+    " б",
+    "аш",
+    "ней"
+   ],
+   "acts": [
+    0.0,
+    1.2021484375,
+    1.3896484375,
+    0.0,
+    0.0,
+    0.0,
+    0.2484130859375,
+    0.611328125,
+    0.7607421875,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Я люблю французские сыры и вино",
+   "tokens": [
+    "Я",
+    " люблю",
+    " француз",
+    "ские",
+    " сы",
+    "ры",
+    " и",
+    " вино"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    1.6279296875,
+    0.37548828125,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Столица России — Москва",
+   "tokens": [
+    "Сто",
+    "лица",
+    " России",
+    " —",
+    " Москва"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Москва известна Красной площадью",
+   "tokens": [
+    "Москва",
+    " извест",
+    "на",
+    " Крас",
+    "ной",
+    " площадью"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Берлин — столица Германии",
+   "tokens": [
+    "Б",
+    "ер",
+    "лин",
+    " —",
+    " столиц",
+    "а",
+    " Германии"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Я обожаю итальянскую пиццу и пасту",
+   "tokens": [
+    "Я",
+    " обо",
+    "жаю",
+    " италья",
+    "н",
+    "скую",
+    " пи",
+    "ц",
+    "цу",
+    " и",
+    " п",
+    "аст",
+    "у"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.28466796875,
+    0.2861328125,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Сегодня солнечная и теплая погода",
+   "tokens": [
+    "С",
+    "егодня",
+    " солнеч",
+    "ная",
+    " и",
+    " теп",
+    "лая",
+    " погода"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Маша путешествовала по Европе и посетила Лувр",
+   "tokens": [
+    "М",
+    "аш",
+    "а",
+    " путеш",
+    "ество",
+    "вала",
+    " по",
+    " Европе",
+    " и",
+    " посети",
+    "ла",
+    " Л",
+    "ув",
+    "р"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.76220703125,
+    0.6328125
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Клод Моне был талантливым живописцем",
+   "tokens": [
+    "К",
+    "ло",
+    "д",
+    " М",
+    "оне",
+    " был",
+    " талантли",
+    "вым",
+    " живо",
+    "пис",
+    "цем"
+   ],
+   "acts": [
+    0.0,
+    0.26123046875,
+    0.87451171875,
+    0.2230224609375,
+    0.61376953125,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "group": "Русский"
+  },
+  {
+   "label": "Die Hauptstadt von Frankreich ist Paris",
+   "tokens": [
+    "Die",
+    " Hauptstadt",
+    " von",
+    " Frankreich",
+    " ist",
+    " Paris"
+   ],
+   "acts": [
+    0.0,
+    0.0,
+    0.0,
+    1.7470703125,
+    0.0,
+    1.13671875
+   ],
+   "group": "Deutsch"
+  },
+  {
+   "label": "フランスの首都はパリ",
+   "tokens": [
+    "フランス",
+    "の",
+    "首都",
+    "は",
+    "パリ"
+   ],
+   "acts": [
+    1.0771484375,
+    0.7880859375,
+    0.0,
+    0.0,
+    1.107421875
+   ],
+   "group": "日本語"
+  }
+ ]
+}

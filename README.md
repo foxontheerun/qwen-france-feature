@@ -4,7 +4,11 @@ A single sparse-autoencoder feature — **layer 12, feature 20583** — that act
 the *concept* of France: across languages, across writing systems, and on cultural
 markers that never name the country.
 
-![France feature heatmap](figures/heatmap_france.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/heatmap_france_dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="figures/heatmap_france.png">
+  <img alt="Activation of feature 20583 (layer 12) across prompts" src="figures/heatmap_france.png">
+</picture>
 
 ## TL;DR
 
