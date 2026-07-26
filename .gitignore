@@ -20,6 +20,9 @@ hf_cache/
 # Generated text dumps (figures are committed; raw text logs are not)
 results/*.txt
 
+# Draft prose (blog posts) — kept local, not published in the repo
+writeups/
+
 # OS / editor
 .DS_Store
 .ipynb_checkpoints/
