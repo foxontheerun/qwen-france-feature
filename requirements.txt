@@ -1,0 +1,10 @@
+# Loose deps for a first run. After a successful run, freeze exact versions:
+#   pip freeze | grep -iE 'torch|transformers|accelerate|safetensors|huggingface|numpy|matplotlib'
+# and pin them here so re-runs are reproducible.
+torch
+transformers
+accelerate
+safetensors
+huggingface_hub
+numpy
+matplotlib

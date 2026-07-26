@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Environments
+env/
+venv/
+.venv/
+
+# Model / SAE caches (large, reproducible)
+*.pt
+*.safetensors
+.cache/
+hf_cache/
+
+# Generated text dumps (figures are committed; raw text logs are not)
+results/*.txt
+
+# OS / editor
+.DS_Store
+.ipynb_checkpoints/
