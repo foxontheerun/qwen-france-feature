@@ -13,13 +13,15 @@ markers that never name the country.
 ## TL;DR
 
 - **Language- and script-independent.** Fires on *France*, *Frankreich*, *Франции*,
-  *フランス* — four languages, three scripts. The concept is not stored as a string.
-- **Cultural, not lexical.** Fires on *"the Louvre"* and *"the Eiffel Tower"* in
-  sentences that never mention France or Paris.
-- **Specific.** Silent on the same templates about Germany, Russia, Japan; only faintly
-  warm on Italy. Silent on math and weather.
-- **Confirmed by direct logit attribution.** The feature promotes ` Paris` (rank ~77 of
-  ~248k tokens), ` Pierre`, ` France`, and suppresses ` Spanish`, ` German`.
+  *フランス*: four languages, three scripts. The concept is not stored as a string.
+- **Cultural, not lexical.** Fires on *«Лувр»* in a Russian sentence about traveling
+  around Europe that mentions neither France nor Paris, where the word *Europe* itself
+  scores a flat zero. Also on *"the Eiffel Tower"*, though that sentence does say
+  "Paris", which makes it the weaker of the two cases.
+- **Specific.** Silent on the same templates about Germany, Russia, Japan; only a faint
+  signal on Italy. Silent on math and weather.
+- **Confirmed by direct logit attribution.** The feature promotes ` Paris` (rank 77 of
+  248,320 vocabulary entries), ` Pierre`, ` France`, and suppresses ` Spanish`, ` German`.
 
 ## Method
 
