@@ -69,7 +69,9 @@ def _cmap(mode):
 def _text_color(rgba, tok):
     r, g, b = rgba[:3]
     lum = 0.2126 * r + 0.7152 * g + 0.0722 * b
-    return tok["ink"] if lum > 0.6 else "#ffffff"
+    # Contrast against the cell itself, not the theme: dark ink on light/bright
+    # cells, white on dark cells. Fixes white-on-bright-blue blending in dark mode.
+    return "#111111" if lum > 0.6 else "#ffffff"
 
 
 def render_heatmap(rows, out_path, mode="light",
