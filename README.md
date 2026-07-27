@@ -10,6 +10,16 @@ markers that never name the country.
   <img alt="Activation of feature 20583 (layer 12) across prompts" src="figures/heatmap_france.png">
 </picture>
 
+## Why this exists
+
+Sparse autoencoders promise a legible vocabulary for what a model represents. This
+repo takes that promise down to a single object and checks it end to end: one feature,
+one concept (France), traced from "does it fire on the concept regardless of language
+or script" to "does editing it change what the model writes". The honest answer is yes
+to reading and no to control, and both halves are written down, not just the flattering
+one. It doubles as a compact, reproducible template for probing any other concept
+feature the same way.
+
 ## TL;DR
 
 - **Language- and script-independent.** Fires on *France*, *Frankreich*, *Франции*,
