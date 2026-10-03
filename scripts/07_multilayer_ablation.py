@@ -25,36 +25,22 @@ import _bootstrap  # noqa: F401
 import torch
 
 from _bootstrap import RESULTS
+from data.prompts import SELECT_CONTROL, SELECT_FRANCE
 from france_feature import (
     BEST_FEATURE,
     SEED,
     TARGET_LAYER,
-    capture,
     clear_hooks,
-    hooked,
+    contrast_scores,
+    find_concept_features,
     load_model,
     load_saes,
-    make_ablate_hook,
+    multi_hooked,
+    score_targets,
     to_inputs,
 )
 
 OUT = RESULTS / "multilayer_ablation.txt"
-
-FRANCE_PROMPTS = [
-    "The capital of France is",
-    "I spent the summer traveling across France",
-    "Die Hauptstadt von Frankreich ist",
-    "Столица Франции —",
-    "フランスの首都は",
-]
-CONTROL_PROMPTS = [
-    "The capital of Germany is",
-    "I spent the summer traveling across Japan",
-    "Die Hauptstadt von Italien ist",
-    "Столица России —",
-    "スペインの首都は",
-    "The capital of Spain is",
-]
 
 # (prompt, target) — we score the probability of the target's first token.
 EVAL = [
@@ -68,49 +54,8 @@ GEN_PROMPTS = [p for p, _ in EVAL[:4]]
 MAX_NEW_TOKENS = 15
 
 
-def max_acts(model, tokenizer, sae, layer, prompts, device):
-    """Per-prompt max-over-positions SAE activation, shape (n_prompts, d_sae)."""
-    rows = []
-    for p in prompts:
-        h, _ = capture(model, tokenizer, p, layer, device)
-        z = sae.encode(h.to(sae.W_enc.dtype))[0]
-        rows.append(z.max(dim=0).values.float())
-    return torch.stack(rows)
-
-
-def find_france_features(model, tokenizer, sae, layer, device, top_n):
-    """Features that fire on every France prompt and not on the controls."""
-    fr = max_acts(model, tokenizer, sae, layer, FRANCE_PROMPTS, device)
-    ctrl = max_acts(model, tokenizer, sae, layer, CONTROL_PROMPTS, device)
-    # min over France prompts: must fire across languages, not on one of them
-    score = fr.min(dim=0).values - ctrl.max(dim=0).values
-    vals, ids = score.topk(top_n)
-    return [(i, v) for i, v in zip(ids.tolist(), vals.tolist()) if v > 0]
-
-
-def multi_hooked(model, saes, plan):
-    """Ablate ``plan[layer] = [feature ids]`` on all listed layers at once."""
-    stack = ExitStack()
-    for layer, fids in plan.items():
-        for fid in fids:
-            stack.enter_context(hooked(model, layer, make_ablate_hook(saes[layer], fid)))
-    return stack
-
-
 def score(model, tokenizer, device, ctx):
-    """P(target first token) and its rank for every EVAL pair."""
-    out = []
-    with ctx:
-        for prompt, target in EVAL:
-            ids = to_inputs(tokenizer, prompt, device)
-            tid = tokenizer.encode(target, add_special_tokens=False)[0]
-            with torch.no_grad():
-                logits = model(**ids).logits[0, -1].float()
-            probs = logits.softmax(-1)
-            rank = int((logits > logits[tid]).sum().item()) + 1
-            top = tokenizer.decode(logits.argmax().item())
-            out.append((probs[tid].item(), rank, top))
-    return out
+    return score_targets(model, tokenizer, device, EVAL, ctx)
 
 
 def generate(model, tokenizer, device, ctx):
@@ -146,7 +91,9 @@ def main():
     log(f"France features per layer (top-n={args.top_n}, score = min_FR - max_ctrl):")
     plan = {}
     for L in layers:
-        found = find_france_features(model, tokenizer, saes[L], L, device, args.top_n)
+        scores = contrast_scores(model, tokenizer, saes[L], L, device,
+                                 SELECT_FRANCE, SELECT_CONTROL)
+        found = find_concept_features(scores, args.top_n)
         if found:
             plan[L] = [fid for fid, _ in found]
         desc = ", ".join(f"{fid} ({v:+.2f})" for fid, v in found) or "— none passes contrast"

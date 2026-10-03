@@ -78,3 +78,53 @@ MIXED_PROMPTS = [
     "Кто изобрёл телефон? Ответь кратко",
     "Какой газ выделяют растения при фотосинтезе? Ответь кратко",
 ]
+
+# Feature selection for the multi-layer ablation (07, 08): on every layer, the
+# France feature must fire on all SELECT_FRANCE prompts and stay below its level
+# on every SELECT_CONTROL prompt.
+SELECT_FRANCE = [
+    "The capital of France is",
+    "I spent the summer traveling across France",
+    "Die Hauptstadt von Frankreich ist",
+    "Столица Франции —",
+    "フランスの首都は",
+]
+SELECT_CONTROL = [
+    "The capital of Germany is",
+    "I spent the summer traveling across Japan",
+    "Die Hauptstadt von Italien ist",
+    "Столица России —",
+    "スペインの首都は",
+    "The capital of Spain is",
+]
+
+# Held-out evaluation (08): no prompt here was used to select features.
+# (prompt, target) — scored on the target's first token.
+HELDOUT_FRANCE = [
+    ("La capitale de la France est", " Paris"),
+    ("The Louvre museum is located in the city of", " Paris"),
+    ("Notre-Dame cathedral stands in the heart of", " Paris"),
+    ("The Seine river flows through the city of", " Paris"),
+    ("Napoleon Bonaparte was the emperor of", " France"),
+    ("Croissants and baguettes are typical food from", " France"),
+    ("Лувр находится в городе", " Париж"),
+    ("エッフェル塔がある都市は", "パリ"),
+]
+HELDOUT_CONTROL = [
+    ("The capital of Italy is", " Rome"),
+    ("La capital de España es", " Madrid"),
+    ("The Colosseum is located in the city of", " Rome"),
+    ("The Brandenburg Gate is located in the city of", " Berlin"),
+    ("Big Ben is located in the city of", " London"),
+    ("Столица Японии —", " Токио"),
+]
+
+# Generic text with no country in it: mean next-token loss checks that an
+# ablation removes a concept rather than damaging the model.
+NEUTRAL_TEXT = [
+    "The quick brown fox jumps over the lazy dog and runs into the forest.",
+    "Photosynthesis converts light energy into chemical energy stored in glucose.",
+    "To install the package, run pip install and then restart the kernel.",
+    "Вчера мы гуляли в парке и долго обсуждали новый фильм.",
+    "She opened the window, made a cup of tea and started reading her emails.",
+]
