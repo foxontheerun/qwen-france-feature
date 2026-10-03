@@ -128,3 +128,90 @@ NEUTRAL_TEXT = [
     "Вчера мы гуляли в парке и долго обсуждали новый фильм.",
     "She opened the window, made a cup of tea and started reading her emails.",
 ]
+
+# Robustness suite (09): one concept per country, each with its own selection
+# sets and a larger held-out set. No held-out prompt appears in any selection
+# set, and held-out prompts avoid naming the target outright.
+CONCEPTS = {
+    "France": {
+        "select": SELECT_FRANCE,
+        "control": SELECT_CONTROL,
+        "heldout": [
+            ("La capitale de la France est", " Paris"),
+            ("The Louvre museum is located in the city of", " Paris"),
+            ("Notre-Dame cathedral stands in the heart of", " Paris"),
+            ("The Seine river flows through the city of", " Paris"),
+            ("The Arc de Triomphe is located in", " Paris"),
+            ("Montmartre is a neighborhood in", " Paris"),
+            ("The Champs-Élysées is a famous avenue in", " Paris"),
+            ("Napoleon Bonaparte was the emperor of", " France"),
+            ("Croissants and baguettes are typical food from", " France"),
+            ("Marseille and Lyon are large cities in", " France"),
+            ("Victor Hugo and Molière were writers from", " France"),
+            ("Emmanuel Macron is the president of", " France"),
+            ("Лувр находится в городе", " Париж"),
+            ("Эйфелева башня находится в городе", " Париж"),
+            ("Die Stadt an der Seine mit dem Eiffelturm heißt", " Paris"),
+        ],
+    },
+    "Germany": {
+        "select": [
+            "The capital of Germany is",
+            "I spent the summer traveling across Germany",
+            "La capitale de l'Allemagne est",
+            "Столица Германии —",
+            "ドイツの首都は",
+        ],
+        "control": [
+            "The capital of France is",
+            "I spent the summer traveling across Japan",
+            "La capitale de l'Italie est",
+            "Столица России —",
+            "スペインの首都は",
+            "The capital of Spain is",
+        ],
+        "heldout": [
+            ("The Brandenburg Gate is located in the city of", " Berlin"),
+            ("The Reichstag building is located in", " Berlin"),
+            ("Oktoberfest is held every year in", " Munich"),
+            ("BMW and Mercedes-Benz are car makers from", " Germany"),
+            ("Goethe and Schiller were poets from", " Germany"),
+            ("The river Rhine flows through western", " Germany"),
+            ("Angela Merkel was the chancellor of", " Germany"),
+            ("Bratwurst and pretzels are typical food from", " Germany"),
+            ("Бранденбургские ворота находятся в городе", " Берлин"),
+            ("Октоберфест проходит в городе", " Мюнхен"),
+            ("La capital de Alemania es", " Berlín"),
+        ],
+    },
+    "Japan": {
+        "select": [
+            "The capital of Japan is",
+            "I spent the summer traveling across Japan",
+            "Die Hauptstadt von Japan ist",
+            "Столица Японии —",
+            "日本の首都は",
+        ],
+        "control": [
+            "The capital of China is",
+            "I spent the summer traveling across France",
+            "Die Hauptstadt von Korea ist",
+            "Столица России —",
+            "スペインの首都は",
+            "The capital of Spain is",
+        ],
+        "heldout": [
+            ("Mount Fuji is the highest mountain in", " Japan"),
+            ("Sushi and ramen are typical food from", " Japan"),
+            ("Shibuya crossing is located in", " Tokyo"),
+            ("Kyoto and Osaka are large cities in", " Japan"),
+            ("The Shinkansen is a high-speed train in", " Japan"),
+            ("Toyota and Honda are car makers from", " Japan"),
+            ("Anime and manga originated in", " Japan"),
+            ("The emperor Akihito reigned over", " Japan"),
+            ("Гора Фудзи находится в", " Японии"),
+            ("Сакура и самураи — символы", " Японии"),
+            ("La capital de Japón es", " Tokio"),
+        ],
+    },
+}

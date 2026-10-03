@@ -39,6 +39,7 @@ from france_feature import (
     find_concept_features,
     load_model,
     load_saes,
+    matched_pool,
     max_acts,
     mean_nll,
     multi_hooked,
@@ -52,14 +53,6 @@ OUT_JSON = RESULTS / "ablation_controls.json"
 PAIRS = HELDOUT_FRANCE + HELDOUT_CONTROL
 N_FR = len(HELDOUT_FRANCE)
 MAX_NEW_TOKENS = 10
-
-
-def matched_pool(scores, strength, fid, lo, hi):
-    """Non-France features whose strength is within ``lo..hi`` x the France feature's."""
-    s = strength[fid]
-    ok = (scores <= 0) & (strength >= lo * s) & (strength <= hi * s)
-    ok[fid] = False
-    return ok.nonzero(as_tuple=True)[0].tolist()
 
 
 def summarize(base, res, idx):

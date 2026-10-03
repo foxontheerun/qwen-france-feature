@@ -8,7 +8,7 @@ from contextlib import ExitStack
 import torch
 
 from .activations import capture, to_inputs
-from .hooks import hooked, make_ablate_hook
+from .hooks import hooked, make_ablate_hook, make_capture_hook
 
 
 def max_acts(model, tokenizer, sae, layer, prompts, device):
@@ -75,3 +75,43 @@ def mean_nll(model, tokenizer, device, texts, ctx):
             total += nll.item()
             count += target.numel()
     return total / count
+
+
+def max_acts_all_layers(model, tokenizer, saes, prompts, device):
+    """Like ``max_acts`` for every layer in ``saes``, one forward pass per prompt.
+
+    Returns ``{layer: (n_prompts, d_sae)}``.
+    """
+    rows = {L: [] for L in saes}
+    for p in prompts:
+        store = {}
+        with ExitStack() as stack:
+            for L in saes:
+                stack.enter_context(hooked(model, L, make_capture_hook(store, key=L)))
+            ids = to_inputs(tokenizer, p, device)
+            with torch.no_grad():
+                model(**ids)
+        for L, sae in saes.items():
+            z = sae.encode(store[L].to(sae.W_enc.dtype))[0]
+            rows[L].append(z.max(dim=0).values.float())
+    return {L: torch.stack(r) for L, r in rows.items()}
+
+
+def contrast_scores_all_layers(model, tokenizer, saes, device, concept_prompts, control_prompts):
+    """``contrast_scores`` for every layer, sharing forward passes: ``{layer: scores}``."""
+    fr = max_acts_all_layers(model, tokenizer, saes, concept_prompts, device)
+    ctrl = max_acts_all_layers(model, tokenizer, saes, control_prompts, device)
+    return {L: fr[L].min(dim=0).values - ctrl[L].max(dim=0).values for L in saes}
+
+
+def matched_pool(scores, strength, fid, lo, hi):
+    """Non-concept features whose strength is within ``lo..hi`` x feature ``fid``'s.
+
+    ``strength`` is max-over-positions activation x decoder-column norm, i.e. the
+    size of the vector an ablation actually removes; ``scores <= 0`` excludes
+    anything selective for the concept.
+    """
+    s = strength[fid]
+    ok = (scores <= 0) & (strength >= lo * s) & (strength <= hi * s)
+    ok[fid] = False
+    return ok.nonzero(as_tuple=True)[0].tolist()

@@ -56,10 +56,11 @@ python scripts/05_steering.py          # additive steering sweep (coherence wind
 python scripts/06_closed_loop.py       # proportional controller on the feature
 python scripts/07_multilayer_ablation.py  # France feature zeroed on all 24 layers
 python scripts/08_ablation_controls.py     # held-out prompts + activity-matched control
+python scripts/09_robustness.py           # France/Germany/Japan dissociation, layer bands, p-value
 ```
 
 Runs on a single GPU (Colab T4 is enough). Generation scripts (`05`, `06`) are the slow
-ones; `07`/`08` load an SAE for every layer (~13 GB download, ~6.5 GB VRAM); the feature-analysis scripts (`01`–`04`) are cheap. For byte-for-byte
+ones; `07`–`09` load an SAE for every layer (~13 GB download, ~6.5 GB VRAM); the feature-analysis scripts (`01`–`04`) are cheap. For byte-for-byte
 reproducibility, pin `MODEL_REVISION` / `SAE_REVISION` in
 [`src/france_feature/config.py`](src/france_feature/config.py) and freeze
 `requirements.txt`.
